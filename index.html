@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Tools Server Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Browser Tools Server Test</h1>
+    <p>This page is for testing the @agentdeskai/browser-tools-server.</p>
+    
+    <button id="logButton">Generate Console Log</button>
+    <button id="errorButton">Generate Console Error</button>
+    <button id="networkButton">Make Network Request</button>
+    
+    <div id="output">Output will appear here...</div>
+
+    <script>
+        document.getElementById('logButton').addEventListener('click', function() {
+            console.log('This is a test log message');
+            document.getElementById('output').textContent = 'Console log generated!';
+        });
+
+        document.getElementById('errorButton').addEventListener('click', function() {
+            console.error('This is a test error message');
+            document.getElementById('output').textContent = 'Console error generated!';
+        });
+
+        document.getElementById('networkButton').addEventListener('click', function() {
+            fetch('https://jsonplaceholder.typicode.com/todos/1')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Network response:', data);
+                    document.getElementById('output').textContent = 'Network request completed! Check console for details.';
+                })
+                .catch(error => {
+                    console.error('Network error:', error);
+                    document.getElementById('output').textContent = 'Network request failed! Check console for details.';
+                });
+        });
+    </script>
+</body>
+</html>
