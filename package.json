@@ -1,0 +1,8 @@
+{
+  "name": "browser-tools-server-test",
+  "version": "1.0.0",
+  "description": "Testing the browser tools server",
+  "scripts": {
+    "start": "npx @agentdeskai/browser-tools-server@1.2.0"
+  }
+}
